@@ -30,7 +30,7 @@ func (c *Common) APIBaseURL() string { // TODO(): 后期做容灾功能
 	if con.Sandbox { // 沙盒模式
 		return "https://proxy.szzt.com.cn/cs-api"
 	}
-	return "https://proxy.szzt.com.cn/cs-api"
+	return "http://iot-proxy.szzt.com.cn:33321/api/v1"
 }
 
 // Request 执行请求
@@ -51,6 +51,7 @@ func (c *Common) Request(response *responses.CommonResponse) (err error) {
 	// 构建配置参数
 	params := map[string]interface{}{
 		"accessId":      con.AccessId,
+		"productKey":    con.ProductKey,
 		"timestamp":     time.Now().Format("20060102150405"),
 		"signatureVer":  "1",
 		"signatureRand": strings.Replace(uuid.NewV4().String(), "-", "", -1),
