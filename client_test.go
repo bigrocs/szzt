@@ -21,10 +21,10 @@ func TestPlay(t *testing.T) {
 	request.ApiName = "play"
 	request.BizContent = map[string]interface{}{
 		"requestId": uuid.NewV4().String(),
-		"deviceId":  "ZS3191300125",
+		"deviceId":  "ZS1213603374",
 		"volume":    "100",
-		"amount":    "125.6",
-		"template":  "{微信}{收款}${元}",
+		"amount":    "0.06",
+		"template":  "{测试2}${元}",
 	}
 	// 请求
 	response, err := client.ProcessCommonRequest(request)
